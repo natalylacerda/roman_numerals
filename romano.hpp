@@ -3,7 +3,14 @@
 
 #include <stdexcept>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-#endif ROMANO_HPP
+class Romano {
+    public:
+        static int converte_algarismo(char algarismoRomano);
+        // int romano_arabico(string numRomano);
+};
+
+#endif // ROMANO_HPP
