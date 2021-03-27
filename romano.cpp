@@ -20,9 +20,15 @@ int Romano::converte_algarismo(char algarismoRomano) {
     }
 }
 
-
 int Romano::romano_arabico(string numRomano) {
     if (numRomano.length() > 30)
         return -1;
+
+    if (numRomano.find("IIII") || numRomano.find("XXXX") || numRomano.find("CCCC"))
+        return -1;
+
+    if (numRomano.find("VV") || numRomano.find("LL") || numRomano.find("DD"))
+        return -1;
+
     return 1;
 }

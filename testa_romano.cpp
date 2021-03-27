@@ -16,4 +16,8 @@ TEST_CASE("Algarismo romano", "[romanos]") {
 TEST_CASE("Numeros invalidos", "[romanos]") {
     REQUIRE(Romano::romano_arabico("AAA") == -1);
     REQUIRE(Romano::romano_arabico("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIII") == -1);
+    REQUIRE(Romano::romano_arabico("VV") == -1);
+    REQUIRE(Romano::romano_arabico("LL") == -1);
+    REQUIRE(Romano::romano_arabico("XXXX") == -1);
+    REQUIRE(Romano::romano_arabico("IIII") == -1);
 }
