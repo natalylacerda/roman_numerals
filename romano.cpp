@@ -20,6 +20,9 @@ int Romano::converte_algarismo(char algarismoRomano) {
     }
 }
 
-// int Romano::romano_arabico(string numRomano) {
 
-// }
+int Romano::romano_arabico(string numRomano) {
+    if (numRomano.length() > 30)
+        return -1;
+    return 1;
+}
