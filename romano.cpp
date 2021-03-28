@@ -20,16 +20,17 @@ int Romano::converte_algarismo(char algarismoRomano) {
     }
 }
 
-int aux = 0;
-
 int Romano::romano_arabico(string numRomano) {
+    int aux = 0;
+    int result = 0;
+
     if (numRomano.length() > 30)
         return -1;
 
-    if (numRomano.find("IIII") || numRomano.find("XXXX") || numRomano.find("CCCC"))
+    if ((numRomano.find("IIII") != string::npos) || (numRomano.find("XXXX") != string::npos) || (numRomano.find("CCCC") != string::npos))
         return -1;
 
-    if (numRomano.find("VV") || numRomano.find("LL") || numRomano.find("DD"))
+    if ((numRomano.find("VV") != string::npos) || (numRomano.find("LL") != string::npos) || (numRomano.find("DD") != string::npos))
         return -1;
 
     for (int i = numRomano.length() - 1; i >= 0; i--) {
@@ -40,13 +41,20 @@ int Romano::romano_arabico(string numRomano) {
             return -1;
         }
 
-        if (i != 0) {
-            if (aux == 1 && numRomano[i-1] > 10)
+        if (i != numRomano.length() - 1) {
+            if (aux == 1 && converte_algarismo(numRomano[i+1]) > 10)
                 return -1;
-            if (aux == 10 && numRomano[i-1] > 100)
+            if (aux == 10 && converte_algarismo(numRomano[i+1]) > 100)
                 return -1;
+
+            if (aux < converte_algarismo(numRomano[i+1]))
+                result -= aux;
+            else
+                result += aux;
         }
+        else
+            result += aux;
         
     }
-    return 1;
+    return result;
 }

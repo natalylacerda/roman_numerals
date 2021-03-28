@@ -13,6 +13,14 @@ TEST_CASE("Algarismo romano", "[romanos]") {
     REQUIRE(Romano::converte_algarismo('M') == 1000);
 }
 
+TEST_CASE("Numeros validos", "[romanos]") {
+    REQUIRE(Romano::romano_arabico("V") == 5);
+    REQUIRE(Romano::romano_arabico("I") == 1);
+    REQUIRE(Romano::romano_arabico("IV") == 4);
+    REQUIRE(Romano::romano_arabico("CXLVII") == 147);
+    REQUIRE(Romano::romano_arabico("LI") == 51);
+}
+
 TEST_CASE("Numeros invalidos", "[romanos]") {
     REQUIRE(Romano::romano_arabico("ZZZ") == -1);
     REQUIRE(Romano::romano_arabico("iii") == -1);
