@@ -16,28 +16,28 @@ int Romano::converte_algarismo(char algarismoRomano) {
             break;
         case 'M': return 1000;
             break;
-        default: throw invalid_argument("Argumento invalido.");
+        default: throw std::invalid_argument("Argumento invalido.");
     }
 }
 
-int Romano::romano_arabico(string numRomano) {
+int Romano::romano_arabico(std::string numRomano) {
     int aux = 0;
     int result = 0;
 
     if (numRomano.length() > 30)
         return -1;
 
-    if ((numRomano.find("IIII") != string::npos) || (numRomano.find("XXXX") != string::npos) || (numRomano.find("CCCC") != string::npos))
+    if ((numRomano.find("IIII") != std::string::npos) || (numRomano.find("XXXX") != std::string::npos) || (numRomano.find("CCCC") != std::string::npos))
         return -1;
 
-    if ((numRomano.find("VV") != string::npos) || (numRomano.find("LL") != string::npos) || (numRomano.find("DD") != string::npos))
+    if ((numRomano.find("VV") != std::string::npos) || (numRomano.find("LL") != std::string::npos) || (numRomano.find("DD") != std::string::npos))
         return -1;
 
     for (int i = numRomano.length() - 1; i >= 0; i--) {
         try {
             aux = converte_algarismo(numRomano[i]);
         }
-        catch (invalid_argument &excecao) {
+        catch (std::invalid_argument &excecao) {
             return -1;
         }
 

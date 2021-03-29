@@ -24,7 +24,7 @@ TEST_CASE("Numeros validos", "[romanos]") {
 TEST_CASE("Numeros invalidos", "[romanos]") {
     REQUIRE(Romano::romano_arabico("ZZZ") == -1);
     REQUIRE(Romano::romano_arabico("iii") == -1);
-    REQUIRE(Romano::romano_arabico("CDIDLDMIIMMLDCILXXLXIDDLCIMIVIILLCDI") == -1);
+    REQUIRE(Romano::romano_arabico("CDIDLDMIIMMLDCILXXLXIDDLCIMIVIIDI") == -1);
     REQUIRE(Romano::romano_arabico("VV") == -1);
     REQUIRE(Romano::romano_arabico("LL") == -1);
     REQUIRE(Romano::romano_arabico("XXXX") == -1);

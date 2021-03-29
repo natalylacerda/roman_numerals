@@ -1,15 +1,14 @@
-#ifndef ROMANO_HPP
-#define ROMANO_HPP
+// Copyright 2021 Nataly Lacerda
+#ifndef ROMANO_HPP_
+#define ROMANO_HPP_
 
 #include <stdexcept>
 #include <string>
 
-using namespace std;
-
 class Romano {
-    public:
-        static int converte_algarismo(char algarismoRomano);
-        static int romano_arabico(string numRomano);
+ public:
+    static int converte_algarismo(char algarismoRomano);
+    static int romano_arabico(std::string numRomano);
 };
 
-#endif // ROMANO_HPP
+#endif  // ROMANO_HPP_
