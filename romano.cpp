@@ -54,7 +54,9 @@ int Romano::romano_arabico(std::string numRomano) {
         }
         else
             result += aux;
-        
     }
-    return result;
+    if (result <=3000)
+        return result;
+    else
+        return -1;
 }

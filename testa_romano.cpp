@@ -31,4 +31,5 @@ TEST_CASE("Numeros invalidos", "[romanos]") {
     REQUIRE(Romano::romano_arabico("IIII") == -1);
     REQUIRE(Romano::romano_arabico("IC") == -1);
     REQUIRE(Romano::romano_arabico("XD") == -1);
+    REQUIRE(Romano::romano_arabico("MMMI") == -1);
 }
