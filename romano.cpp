@@ -1,5 +1,7 @@
+// Copyright 2021 Nataly Lacerda
 #include "romano.hpp"
 
+// Funcao que converte cada algarismo romano
 int Romano::converte_algarismo(char algarismoRomano) {
     switch (algarismoRomano) {
         case 'I': return 1;
@@ -20,17 +22,25 @@ int Romano::converte_algarismo(char algarismoRomano) {
     }
 }
 
+// Funcao que converte numeral romano para numeral arabico
 int Romano::romano_arabico(std::string numRomano) {
     int aux = 0;
     int result = 0;
 
+    // Numero nao pode ter mais que 30 caracteres
     if (numRomano.length() > 30)
         return -1;
 
-    if ((numRomano.find("IIII") != std::string::npos) || (numRomano.find("XXXX") != std::string::npos) || (numRomano.find("CCCC") != std::string::npos))
+    // I, X e C nao se repetem mais de tres vezes
+    if ((numRomano.find("IIII") != std::string::npos) ||
+        (numRomano.find("XXXX") != std::string::npos) ||
+        (numRomano.find("CCCC") != std::string::npos))
         return -1;
 
-    if ((numRomano.find("VV") != std::string::npos) || (numRomano.find("LL") != std::string::npos) || (numRomano.find("DD") != std::string::npos))
+    // V, L e D nao se repetem
+    if ((numRomano.find("VV") != std::string::npos) ||
+        (numRomano.find("LL") != std::string::npos) ||
+        (numRomano.find("DD") != std::string::npos))
         return -1;
 
     for (int i = numRomano.length() - 1; i >= 0; i--) {
@@ -42,19 +52,25 @@ int Romano::romano_arabico(std::string numRomano) {
         }
 
         if (i != numRomano.length() - 1) {
+            // I so aparece antes de I, V e X
             if (aux == 1 && converte_algarismo(numRomano[i+1]) > 10)
                 return -1;
+            // X so aparece antes de I, V, X, L e C
             if (aux == 10 && converte_algarismo(numRomano[i+1]) > 100)
                 return -1;
 
+            // Se um caracter de menor valor vier antes do maior,
+            // subtraimos os seus valores
             if (aux < converte_algarismo(numRomano[i+1]))
                 result -= aux;
+            // Caso contrário, somamos.
             else
                 result += aux;
-        }
-        else
+        } else {
             result += aux;
+        }
     }
+    // O numero nao pode ser maior que 3000
     if (result <=3000)
         return result;
     else
